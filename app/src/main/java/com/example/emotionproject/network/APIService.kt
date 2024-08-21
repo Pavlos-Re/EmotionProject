@@ -3,7 +3,11 @@ package com.example.emotionproject.network
 import com.example.emotionproject.models.TestModel
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
+import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 
@@ -21,8 +25,8 @@ object ServiceAPI {
 }
 
 interface APIService {
-    @GET("test")
-    suspend fun sendText(
-        @Query("test") text: String) : TestModel
+    @FormUrlEncoded
+    @POST("/test")
+    suspend fun sendText(@Field("test") test: String) : TestModel
 
 }

@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
     private var audioFile: File? = null
 
-    val newViewModel: NewViewModel by viewModels()
+    private val newViewModel: NewViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
