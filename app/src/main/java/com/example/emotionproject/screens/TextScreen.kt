@@ -14,6 +14,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,6 +37,10 @@ fun TextScreen(
 ) {
 
     var description by remember {
+        mutableStateOf("")
+    }
+
+    var mainEmotion by remember {
         mutableStateOf("")
     }
     val context = LocalContext.current
@@ -76,7 +81,11 @@ fun TextScreen(
                     }
                 })
 
-            Text(text = "You are feeling: $description")
+            Text(text = "You are feeling: $description", modifier = Modifier.padding(top = 10.dp))
+
+            Text(text = "Your main emotion is: ${mainEmotion}").also {
+                mainEmotion = newViewModel.mainEmotion.collectAsState().value
+            }
 
         }
         Column(

@@ -12,7 +12,7 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 val retrofit: Retrofit = Retrofit.Builder()
-    .baseUrl("http://192.168.2.59:5000")
+    .baseUrl("http://192.168.2.126:5000")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
